@@ -9,13 +9,26 @@
 /* Begin PBXBuildFile section */
 		BB3703732AF41D8200CF4639 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703722AF41D8200CF4639 /* AppDelegate.swift */; };
 		BB3703752AF41D8200CF4639 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703742AF41D8200CF4639 /* SceneDelegate.swift */; };
-		BB3703772AF41D8200CF4639 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703762AF41D8200CF4639 /* ViewController.swift */; };
-		BB37037A2AF41D8200CF4639 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB3703782AF41D8200CF4639 /* Main.storyboard */; };
+		BB3703772AF41D8200CF4639 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703762AF41D8200CF4639 /* MainViewController.swift */; };
 		BB37037C2AF41D8300CF4639 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB37037B2AF41D8300CF4639 /* Assets.xcassets */; };
 		BB37037F2AF41D8300CF4639 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB37037D2AF41D8300CF4639 /* LaunchScreen.storyboard */; };
 		BB37038A2AF41D8400CF4639 /* DigimonAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703892AF41D8400CF4639 /* DigimonAppTests.swift */; };
 		BB3703942AF41D8400CF4639 /* DigimonAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703932AF41D8400CF4639 /* DigimonAppUITests.swift */; };
 		BB3703962AF41D8400CF4639 /* DigimonAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703952AF41D8400CF4639 /* DigimonAppUITestsLaunchTests.swift */; };
+		BB3703A62AF41F3100CF4639 /* Digimon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703A52AF41F3100CF4639 /* Digimon.swift */; };
+		BB3703A92AF41F9000CF4639 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703A82AF41F9000CF4639 /* NetworkManager.swift */; };
+		BB3703AC2AF420F900CF4639 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703AB2AF420F900CF4639 /* NetworkError.swift */; };
+		BB3703AE2AF4237100CF4639 /* DigimonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703AD2AF4237100CF4639 /* DigimonTableViewController.swift */; };
+		BB3703B02AF423B100CF4639 /* DigimonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703AF2AF423B100CF4639 /* DigimonTableViewCell.swift */; };
+		BB3703B32AF424FD00CF4639 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703B22AF424FD00CF4639 /* Color.swift */; };
+		BB3703B52AF4262A00CF4639 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703B42AF4262A00CF4639 /* Constants.swift */; };
+		BB3703B82AF4266900CF4639 /* DigimonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703B72AF4266900CF4639 /* DigimonService.swift */; };
+		BB3703BA2AF42EA400CF4639 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703B92AF42EA400CF4639 /* UIImageView.swift */; };
+		BB3703BC2AF4329400CF4639 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703BB2AF4329400CF4639 /* UIImage.swift */; };
+		BB3703BE2AF4347B00CF4639 /* DigimonLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703BD2AF4347B00CF4639 /* DigimonLevel.swift */; };
+		BB3703C02AF4398B00CF4639 /* DigimonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703BF2AF4398B00CF4639 /* DigimonDetailsViewController.swift */; };
+		BB3703C22AF43CD300CF4639 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703C12AF43CD300CF4639 /* SignInViewController.swift */; };
+		BB3703C42AF43E4000CF4639 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703C32AF43E4000CF4639 /* UITextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +52,7 @@
 		BB37036F2AF41D8200CF4639 /* DigimonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigimonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB3703722AF41D8200CF4639 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB3703742AF41D8200CF4639 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BB3703762AF41D8200CF4639 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BB3703792AF41D8200CF4639 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BB3703762AF41D8200CF4639 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BB37037B2AF41D8300CF4639 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB37037E2AF41D8300CF4639 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB3703802AF41D8300CF4639 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +61,20 @@
 		BB37038F2AF41D8400CF4639 /* DigimonAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigimonAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB3703932AF41D8400CF4639 /* DigimonAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonAppUITests.swift; sourceTree = "<group>"; };
 		BB3703952AF41D8400CF4639 /* DigimonAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BB3703A52AF41F3100CF4639 /* Digimon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digimon.swift; sourceTree = "<group>"; };
+		BB3703A82AF41F9000CF4639 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BB3703AB2AF420F900CF4639 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		BB3703AD2AF4237100CF4639 /* DigimonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonTableViewController.swift; sourceTree = "<group>"; };
+		BB3703AF2AF423B100CF4639 /* DigimonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonTableViewCell.swift; sourceTree = "<group>"; };
+		BB3703B22AF424FD00CF4639 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		BB3703B42AF4262A00CF4639 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BB3703B72AF4266900CF4639 /* DigimonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonService.swift; sourceTree = "<group>"; };
+		BB3703B92AF42EA400CF4639 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		BB3703BB2AF4329400CF4639 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		BB3703BD2AF4347B00CF4639 /* DigimonLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonLevel.swift; sourceTree = "<group>"; };
+		BB3703BF2AF4398B00CF4639 /* DigimonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonDetailsViewController.swift; sourceTree = "<group>"; };
+		BB3703C12AF43CD300CF4639 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		BB3703C32AF43E4000CF4639 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +125,15 @@
 		BB3703712AF41D8200CF4639 /* DigimonApp */ = {
 			isa = PBXGroup;
 			children = (
+				BB3703B62AF4265F00CF4639 /* Services */,
+				BB3703B12AF424F500CF4639 /* Extensions */,
+				BB3703AA2AF420E800CF4639 /* Enums */,
+				BB3703A72AF41F8900CF4639 /* Utilities */,
+				BB3703A42AF41F0100CF4639 /* Controllers */,
+				BB3703A32AF41EFD00CF4639 /* Views */,
+				BB3703A22AF41EF400CF4639 /* Models */,
 				BB3703722AF41D8200CF4639 /* AppDelegate.swift */,
 				BB3703742AF41D8200CF4639 /* SceneDelegate.swift */,
-				BB3703762AF41D8200CF4639 /* ViewController.swift */,
-				BB3703782AF41D8200CF4639 /* Main.storyboard */,
 				BB37037B2AF41D8300CF4639 /* Assets.xcassets */,
 				BB37037D2AF41D8300CF4639 /* LaunchScreen.storyboard */,
 				BB3703802AF41D8300CF4639 /* Info.plist */,
@@ -125,6 +156,70 @@
 				BB3703952AF41D8400CF4639 /* DigimonAppUITestsLaunchTests.swift */,
 			);
 			path = DigimonAppUITests;
+			sourceTree = "<group>";
+		};
+		BB3703A22AF41EF400CF4639 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB3703A52AF41F3100CF4639 /* Digimon.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BB3703A32AF41EFD00CF4639 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB3703AF2AF423B100CF4639 /* DigimonTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BB3703A42AF41F0100CF4639 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BB3703762AF41D8200CF4639 /* MainViewController.swift */,
+				BB3703AD2AF4237100CF4639 /* DigimonTableViewController.swift */,
+				BB3703BF2AF4398B00CF4639 /* DigimonDetailsViewController.swift */,
+				BB3703C12AF43CD300CF4639 /* SignInViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BB3703A72AF41F8900CF4639 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BB3703A82AF41F9000CF4639 /* NetworkManager.swift */,
+				BB3703B42AF4262A00CF4639 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BB3703AA2AF420E800CF4639 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				BB3703AB2AF420F900CF4639 /* NetworkError.swift */,
+				BB3703BD2AF4347B00CF4639 /* DigimonLevel.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		BB3703B12AF424F500CF4639 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BB3703B22AF424FD00CF4639 /* Color.swift */,
+				BB3703B92AF42EA400CF4639 /* UIImageView.swift */,
+				BB3703BB2AF4329400CF4639 /* UIImage.swift */,
+				BB3703C32AF43E4000CF4639 /* UITextField.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BB3703B62AF4265F00CF4639 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BB3703B72AF4266900CF4639 /* DigimonService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +328,6 @@
 			files = (
 				BB37037F2AF41D8300CF4639 /* LaunchScreen.storyboard in Resources */,
 				BB37037C2AF41D8300CF4639 /* Assets.xcassets in Resources */,
-				BB37037A2AF41D8200CF4639 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +352,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB3703772AF41D8200CF4639 /* ViewController.swift in Sources */,
+				BB3703772AF41D8200CF4639 /* MainViewController.swift in Sources */,
 				BB3703732AF41D8200CF4639 /* AppDelegate.swift in Sources */,
+				BB3703AE2AF4237100CF4639 /* DigimonTableViewController.swift in Sources */,
+				BB3703A92AF41F9000CF4639 /* NetworkManager.swift in Sources */,
+				BB3703BA2AF42EA400CF4639 /* UIImageView.swift in Sources */,
+				BB3703AC2AF420F900CF4639 /* NetworkError.swift in Sources */,
+				BB3703B52AF4262A00CF4639 /* Constants.swift in Sources */,
 				BB3703752AF41D8200CF4639 /* SceneDelegate.swift in Sources */,
+				BB3703A62AF41F3100CF4639 /* Digimon.swift in Sources */,
+				BB3703B02AF423B100CF4639 /* DigimonTableViewCell.swift in Sources */,
+				BB3703B82AF4266900CF4639 /* DigimonService.swift in Sources */,
+				BB3703BC2AF4329400CF4639 /* UIImage.swift in Sources */,
+				BB3703C22AF43CD300CF4639 /* SignInViewController.swift in Sources */,
+				BB3703C02AF4398B00CF4639 /* DigimonDetailsViewController.swift in Sources */,
+				BB3703BE2AF4347B00CF4639 /* DigimonLevel.swift in Sources */,
+				BB3703C42AF43E4000CF4639 /* UITextField.swift in Sources */,
+				BB3703B32AF424FD00CF4639 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +405,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BB3703782AF41D8200CF4639 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BB3703792AF41D8200CF4639 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BB37037D2AF41D8300CF4639 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -447,7 +547,6 @@
 				INFOPLIST_FILE = DigimonApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -475,7 +574,6 @@
 				INFOPLIST_FILE = DigimonApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
