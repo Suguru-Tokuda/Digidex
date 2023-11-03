@@ -75,7 +75,8 @@ extension DigimonTableViewCell {
     private func applyConstraints() {
         let digimonImageViewConstraints = [
             digimonImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            digimonImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            digimonImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            digimonImageView.widthAnchor.constraint(equalToConstant: 60)
         ]
         
         let nameStackViewConstraints = [
