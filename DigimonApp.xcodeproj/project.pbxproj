@@ -177,9 +177,9 @@
 		BB3703A42AF41F0100CF4639 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BB3703762AF41D8200CF4639 /* MainViewController.swift */,
-				BB3703AD2AF4237100CF4639 /* DigimonTableViewController.swift */,
 				BB3703BF2AF4398B00CF4639 /* DigimonDetailsViewController.swift */,
+				BB3703AD2AF4237100CF4639 /* DigimonTableViewController.swift */,
+				BB3703762AF41D8200CF4639 /* MainViewController.swift */,
 				BB3703C12AF43CD300CF4639 /* SignInViewController.swift */,
 			);
 			path = Controllers;
@@ -188,8 +188,8 @@
 		BB3703A72AF41F8900CF4639 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				BB3703A82AF41F9000CF4639 /* NetworkManager.swift */,
 				BB3703B42AF4262A00CF4639 /* Constants.swift */,
+				BB3703A82AF41F9000CF4639 /* NetworkManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -197,8 +197,8 @@
 		BB3703AA2AF420E800CF4639 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				BB3703AB2AF420F900CF4639 /* NetworkError.swift */,
 				BB3703BD2AF4347B00CF4639 /* DigimonLevel.swift */,
+				BB3703AB2AF420F900CF4639 /* NetworkError.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -207,8 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				BB3703B22AF424FD00CF4639 /* Color.swift */,
-				BB3703B92AF42EA400CF4639 /* UIImageView.swift */,
 				BB3703BB2AF4329400CF4639 /* UIImage.swift */,
+				BB3703B92AF42EA400CF4639 /* UIImageView.swift */,
 				BB3703C32AF43E4000CF4639 /* UITextField.swift */,
 			);
 			path = Extensions;
