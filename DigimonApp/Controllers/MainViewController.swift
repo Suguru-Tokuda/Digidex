@@ -10,6 +10,8 @@ import UIKit
 class MainNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        let signInViewController = SignInViewController()
+        setViewControllers([signInViewController], animated: false)
     }
 }
 
