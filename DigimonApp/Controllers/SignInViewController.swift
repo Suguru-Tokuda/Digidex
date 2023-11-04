@@ -124,13 +124,13 @@ extension SignInViewController {
 
 extension SignInViewController {
     @objc func signInBtnTap() {
-        if isValidCredentials(email: self.emailTextField.text, password: self.passwordTextField.text) {
-            let vc = DigimonTableViewController()
+//        if isValidCredentials(email: self.emailTextField.text, password: self.passwordTextField.text) {
+            let vc = MainTabBarController()
             self.navigationController?.pushViewController(vc, animated: true)
-        } else {
-            let alert = UIAlertController(title: "Invalid Credentials", message: "Please try again", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-            self.present(alert, animated: true)
-        }
+//        } else {
+//            let alert = UIAlertController(title: "Invalid Credentials", message: "Please try again", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+//            self.present(alert, animated: true)
+//        }
     }
 }

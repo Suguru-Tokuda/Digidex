@@ -9,13 +9,17 @@ import UIKit
 
 class DigimonTableViewController: UIViewController {
     var levels: [DigimonLevel] = []
-    var digimons: [Digimon] = []
     var digimonDict: [DigimonLevel : [Digimon]] = [:]
     
     private var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(DigimonTableViewCell.self, forCellReuseIdentifier: DigimonTableViewCell.identifier)
         return tableView
+    }()
+    
+    private var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        return refreshControl
     }()
     
     override func viewDidLoad() {
@@ -31,40 +35,44 @@ class DigimonTableViewController: UIViewController {
 
 extension DigimonTableViewController {
     private func getDigimons() {
+        DispatchQueue.main.async {
+            self.refreshControl.beginRefreshing()
+        }
+        
         DispatchQueue.global(qos: .utility).async {
-            DigimonService.shared.getDigimons { res in
-                DispatchQueue.main.async { [weak self] in
+            DigimonService.shared.getDigimons { [weak self] res in
+                DispatchQueue.main.async {
                     switch res {
                     case .success(let digimons):
-                        self?.digimons = digimons
                         self?.processDigimons(digimons: digimons)
                         self?.tableView.reloadData()
+                        self?.refreshControl.endRefreshing()
                     case .failure(let error):
                         let alert = UIAlertController(title: "Error fetching digimon data.", message: error.localizedDescription, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .cancel))
                         self?.present(alert, animated: true)
+                        self?.refreshControl.endRefreshing()
                     }
                 }
             }
         }
     }
-    
+
     private func processDigimons(digimons: [Digimon]) {
-        self.digimonDict = [:]
-        self.levels = []
-        DigimonLevel.allCases.forEach({ digiLevel in
-            let filteredDigimons = digimons.filter { $0.level == digiLevel.rawValue }
-            if !filteredDigimons.isEmpty {
-                digimonDict[digiLevel] = filteredDigimons.sorted(by: { $0.name < $1.name })
-                levels.append(digiLevel)
-            }
-        })
+        let (digimonDict, levels) = DigimonService.shared.processDigimons(digimons: digimons)
+
+        self.digimonDict = digimonDict
+        self.levels = levels
     }
 }
 
 extension DigimonTableViewController {
     private func setUpUI() {
         view.addSubview(tableView)
+        
+        refreshControl.addTarget(self, action: #selector(self.refreshDigimons), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+        
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -111,5 +119,12 @@ extension DigimonTableViewController : UITableViewDelegate {
             
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+}
+
+// MARK: event handlers
+extension DigimonTableViewController {
+    @objc private func refreshDigimons() {
+        self.getDigimons()
     }
 }

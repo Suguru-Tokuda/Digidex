@@ -9,7 +9,6 @@ import UIKit
 
 class DigimonTableViewCell: UITableViewCell {
     static let identifier = "DigimonTableViewCell"
-    private var digimon: Digimon?
     
     var digimonImageView: UIImageView = {
         let imageView = UIImageView()
@@ -92,7 +91,6 @@ extension DigimonTableViewCell {
 
 extension DigimonTableViewCell {
     func setDigimon(digimon: Digimon) {
-        self.digimon = digimon
         if let url = URL(string: digimon.img) {
             self.digimonImageView.load(url: url, size: CGSize(width: 60, height: 60))
         }

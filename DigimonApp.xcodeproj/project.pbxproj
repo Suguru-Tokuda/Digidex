@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB1E32DC2AF58B79004C8ABF /* DigimonCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E32DB2AF58B79004C8ABF /* DigimonCollectionViewController.swift */; };
+		BB1E32DE2AF59278004C8ABF /* DigimonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E32DD2AF59278004C8ABF /* DigimonCollectionViewCell.swift */; };
+		BB1E32E02AF5C18B004C8ABF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E32DF2AF5C18B004C8ABF /* MainTabBarController.swift */; };
+		BB1E32E22AF5D9FC004C8ABF /* DigimonCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E32E12AF5D9FC004C8ABF /* DigimonCollectionHeaderView.swift */; };
 		BB3703732AF41D8200CF4639 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703722AF41D8200CF4639 /* AppDelegate.swift */; };
 		BB3703752AF41D8200CF4639 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703742AF41D8200CF4639 /* SceneDelegate.swift */; };
 		BB3703772AF41D8200CF4639 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703762AF41D8200CF4639 /* MainViewController.swift */; };
@@ -49,6 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB1E32DB2AF58B79004C8ABF /* DigimonCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonCollectionViewController.swift; sourceTree = "<group>"; };
+		BB1E32DD2AF59278004C8ABF /* DigimonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB1E32DF2AF5C18B004C8ABF /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		BB1E32E12AF5D9FC004C8ABF /* DigimonCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonCollectionHeaderView.swift; sourceTree = "<group>"; };
 		BB37036F2AF41D8200CF4639 /* DigimonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigimonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB3703722AF41D8200CF4639 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB3703742AF41D8200CF4639 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,18 +133,18 @@
 		BB3703712AF41D8200CF4639 /* DigimonApp */ = {
 			isa = PBXGroup;
 			children = (
-				BB3703B62AF4265F00CF4639 /* Services */,
-				BB3703B12AF424F500CF4639 /* Extensions */,
-				BB3703AA2AF420E800CF4639 /* Enums */,
-				BB3703A72AF41F8900CF4639 /* Utilities */,
-				BB3703A42AF41F0100CF4639 /* Controllers */,
-				BB3703A32AF41EFD00CF4639 /* Views */,
-				BB3703A22AF41EF400CF4639 /* Models */,
+				BB3703802AF41D8300CF4639 /* Info.plist */,
 				BB3703722AF41D8200CF4639 /* AppDelegate.swift */,
 				BB3703742AF41D8200CF4639 /* SceneDelegate.swift */,
 				BB37037B2AF41D8300CF4639 /* Assets.xcassets */,
+				BB3703A42AF41F0100CF4639 /* Controllers */,
+				BB3703AA2AF420E800CF4639 /* Enums */,
+				BB3703B12AF424F500CF4639 /* Extensions */,
 				BB37037D2AF41D8300CF4639 /* LaunchScreen.storyboard */,
-				BB3703802AF41D8300CF4639 /* Info.plist */,
+				BB3703A22AF41EF400CF4639 /* Models */,
+				BB3703B62AF4265F00CF4639 /* Services */,
+				BB3703A72AF41F8900CF4639 /* Utilities */,
+				BB3703A32AF41EFD00CF4639 /* Views */,
 			);
 			path = DigimonApp;
 			sourceTree = "<group>";
@@ -170,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				BB3703AF2AF423B100CF4639 /* DigimonTableViewCell.swift */,
+				BB1E32DD2AF59278004C8ABF /* DigimonCollectionViewCell.swift */,
+				BB1E32E12AF5D9FC004C8ABF /* DigimonCollectionHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,8 +187,10 @@
 		BB3703A42AF41F0100CF4639 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BB1E32DB2AF58B79004C8ABF /* DigimonCollectionViewController.swift */,
 				BB3703BF2AF4398B00CF4639 /* DigimonDetailsViewController.swift */,
 				BB3703AD2AF4237100CF4639 /* DigimonTableViewController.swift */,
+				BB1E32DF2AF5C18B004C8ABF /* MainTabBarController.swift */,
 				BB3703762AF41D8200CF4639 /* MainViewController.swift */,
 				BB3703C12AF43CD300CF4639 /* SignInViewController.swift */,
 			);
@@ -352,7 +364,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB1E32DC2AF58B79004C8ABF /* DigimonCollectionViewController.swift in Sources */,
 				BB3703772AF41D8200CF4639 /* MainViewController.swift in Sources */,
+				BB1E32E02AF5C18B004C8ABF /* MainTabBarController.swift in Sources */,
 				BB3703732AF41D8200CF4639 /* AppDelegate.swift in Sources */,
 				BB3703AE2AF4237100CF4639 /* DigimonTableViewController.swift in Sources */,
 				BB3703A92AF41F9000CF4639 /* NetworkManager.swift in Sources */,
@@ -364,9 +378,11 @@
 				BB3703B02AF423B100CF4639 /* DigimonTableViewCell.swift in Sources */,
 				BB3703B82AF4266900CF4639 /* DigimonService.swift in Sources */,
 				BB3703BC2AF4329400CF4639 /* UIImage.swift in Sources */,
+				BB1E32E22AF5D9FC004C8ABF /* DigimonCollectionHeaderView.swift in Sources */,
 				BB3703C22AF43CD300CF4639 /* SignInViewController.swift in Sources */,
 				BB3703C02AF4398B00CF4639 /* DigimonDetailsViewController.swift in Sources */,
 				BB3703BE2AF4347B00CF4639 /* DigimonLevel.swift in Sources */,
+				BB1E32DE2AF59278004C8ABF /* DigimonCollectionViewCell.swift in Sources */,
 				BB3703C42AF43E4000CF4639 /* UITextField.swift in Sources */,
 				BB3703B32AF424FD00CF4639 /* Color.swift in Sources */,
 			);

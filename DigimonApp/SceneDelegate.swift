@@ -18,12 +18,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = MainNavigationController()
         window?.makeKeyAndVisible()
         
-        // override background color
+        overrideColors()
+    }
+    
+    private func overrideColors() {
         window?.backgroundColor = UIColor.theme.background
         UINavigationBar.appearance().backgroundColor = UIColor.theme.background
         UITabBar.appearance().backgroundColor = UIColor.theme.background
         UITableView.appearance().backgroundColor = UIColor.theme.background
         UITableViewCell.appearance().backgroundColor = UIColor.clear
+        UICollectionView.appearance().backgroundColor = UIColor.theme.background
+        UICollectionViewCell.appearance().backgroundColor = UIColor.clear
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -53,7 +58,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 
