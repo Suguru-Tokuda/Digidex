@@ -8,22 +8,27 @@
 import UIKit
 
 class CustomNavigationController: UINavigationController {
+    var isNewViewControllerBeingAdded: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.delegate = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func contains(viewController: UIViewController) -> Bool {
+        return self.viewControllers.map{ $0.className }.contains(viewController.className)
     }
-    */
+    
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        if !self.isNewViewControllerBeingAdded && !self.contains(viewController: viewController) {
+            self.isNewViewControllerBeingAdded = true
+            super.pushViewController(viewController, animated: true)
+        }
+    }
+}
 
+extension CustomNavigationController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        self.isNewViewControllerBeingAdded = false
+    }
 }

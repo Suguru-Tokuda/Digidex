@@ -142,11 +142,13 @@ extension DigimonCollectionViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let digimons = digimonDict[self.levels[indexPath.section]],
            digimons.count > indexPath.row {
-            let digimon = digimons[indexPath.row]
-            let vc = DigimonDetailsViewController()
-            vc.setDigimon(digimon: digimon)
-            
-            self.navigationController?.pushViewController(vc, animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                let digimon = digimons[indexPath.row]
+                let vc = DigimonDetailsViewController()
+                vc.setDigimon(digimon: digimon)
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }
