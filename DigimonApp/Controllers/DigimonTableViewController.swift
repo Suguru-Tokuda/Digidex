@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DigimonTableViewController: UIViewController {
+class DigimonTableViewController: CustomNavigationController {
     var levels: [DigimonLevel] = []
     var digimonDict: [DigimonLevel : [Digimon]] = [:]
     
@@ -29,6 +29,7 @@ class DigimonTableViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
 }
@@ -113,7 +114,7 @@ extension DigimonTableViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let digimons = digimonDict[self.levels[indexPath.section]],
            digimons.count > indexPath.row {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            DispatchQueue.main.async {
                 let digimon = digimons[indexPath.row]
                 let vc = DigimonDetailsViewController()
                 vc.setDigimon(digimon: digimon)

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DigimonCollectionViewController: UIViewController {
+class DigimonCollectionViewController: CustomNavigationController {
     var levels: [DigimonLevel] = []
     var digimonDict: [DigimonLevel : [Digimon]] = [:]
     
@@ -39,8 +39,8 @@ class DigimonCollectionViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        collectionView.frame = contentView.bounds
-        
+        super.viewDidLayoutSubviews()
+        collectionView.frame = contentView.bounds        
     }
 }
 

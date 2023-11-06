@@ -19,7 +19,7 @@ class MainTabBarController: UITabBarController {
         vc1.tabBarItem.title = "List"
         vc2.tabBarItem.title = "Grid"
         
-        tabBar.tintColor = UIColor.theme.label
+        tabBar.tintColor = UIColor.theme.labelColor
         
         setViewControllers([vc1, vc2], animated: true)
     }

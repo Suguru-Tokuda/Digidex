@@ -8,8 +8,6 @@
 import UIKit
 
 class DigimonDetailsViewController: UIViewController {
-    private var digimon: Digimon?
-
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,12 +53,7 @@ class DigimonDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(scrollView)
-        scrollView.addSubview(scrollViewContainer)
-        scrollViewContainer.addArrangedSubview(mainImage)
-        scrollViewContainer.addArrangedSubview(digimonNameLabel)
-        scrollViewContainer.addArrangedSubview(digimonLavelLabel)
-        applyConstraints()
+        setUpUI()
     }
 }
 
@@ -77,16 +70,12 @@ extension DigimonDetailsViewController {
     }
     
     func setDigimon(digimon: Digimon) {
-        self.digimon = digimon
+        digimonNameLabel.text = digimon.name
+        digimonLavelLabel.text = digimon.level
         
-        if let digimon = self.digimon {
-            if let url = URL(string: digimon.img) {
-                let width = view.bounds.width * 0.8
-                self.mainImage.load(url: url, size: CGSize(width: width, height: width))
-            }
-            
-            digimonNameLabel.text = digimon.name
-            digimonLavelLabel.text = digimon.level
+        if let url = URL(string: digimon.img) {
+            let width = view.bounds.width * 0.8
+            self.mainImage.load(url: url, size: CGSize(width: width, height: width))
         }
     }
 }

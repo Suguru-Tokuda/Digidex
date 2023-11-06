@@ -12,6 +12,6 @@ extension UIColor {
     
     struct ColorTheme {
         let background = UIColor(named: "Background")
-        let label = UIColor(named: "Label")
+        let labelColor = UIColor(named: "LabelColor")
     }
 }
