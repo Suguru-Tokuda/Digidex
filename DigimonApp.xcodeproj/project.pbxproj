@@ -33,6 +33,8 @@
 		BB3703C02AF4398B00CF4639 /* DigimonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703BF2AF4398B00CF4639 /* DigimonDetailsViewController.swift */; };
 		BB3703C22AF43CD300CF4639 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703C12AF43CD300CF4639 /* SignInViewController.swift */; };
 		BB3703C42AF43E4000CF4639 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3703C32AF43E4000CF4639 /* UITextField.swift */; };
+		BB8F2F4C2AFADECE00C98914 /* UIKitToSwiftUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8F2F4B2AFADECE00C98914 /* UIKitToSwiftUIViewController.swift */; };
+		BB8F2F4F2AFADF3B00C98914 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8F2F4E2AFADF3B00C98914 /* SwiftUIView.swift */; };
 		BBB5105C2AF843A100E48F61 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB5105B2AF843A100E48F61 /* CustomNavigationController.swift */; };
 		BBB5105E2AF8444900E48F61 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB5105D2AF8444900E48F61 /* NSObject.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +87,8 @@
 		BB3703BF2AF4398B00CF4639 /* DigimonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonDetailsViewController.swift; sourceTree = "<group>"; };
 		BB3703C12AF43CD300CF4639 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		BB3703C32AF43E4000CF4639 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		BB8F2F4B2AFADECE00C98914 /* UIKitToSwiftUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitToSwiftUIViewController.swift; sourceTree = "<group>"; };
+		BB8F2F4E2AFADF3B00C98914 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		BBB5105B2AF843A100E48F61 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		BBB5105D2AF8444900E48F61 /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +141,7 @@
 		BB3703712AF41D8200CF4639 /* DigimonApp */ = {
 			isa = PBXGroup;
 			children = (
+				BB8F2F4D2AFADF2B00C98914 /* SwiftUIViews */,
 				BBB5105A2AF8437C00E48F61 /* Core */,
 				BB3703802AF41D8300CF4639 /* Info.plist */,
 				BB3703722AF41D8200CF4639 /* AppDelegate.swift */,
@@ -198,6 +203,7 @@
 				BB1E32DF2AF5C18B004C8ABF /* MainTabBarController.swift */,
 				BB3703762AF41D8200CF4639 /* MainViewController.swift */,
 				BB3703C12AF43CD300CF4639 /* SignInViewController.swift */,
+				BB8F2F4B2AFADECE00C98914 /* UIKitToSwiftUIViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -238,6 +244,14 @@
 				BB3703B72AF4266900CF4639 /* DigimonService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		BB8F2F4D2AFADF2B00C98914 /* SwiftUIViews */ = {
+			isa = PBXGroup;
+			children = (
+				BB8F2F4E2AFADF3B00C98914 /* SwiftUIView.swift */,
+			);
+			path = SwiftUIViews;
 			sourceTree = "<group>";
 		};
 		BBB5105A2AF8437C00E48F61 /* Core */ = {
@@ -378,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB8F2F4C2AFADECE00C98914 /* UIKitToSwiftUIViewController.swift in Sources */,
 				BBB5105E2AF8444900E48F61 /* NSObject.swift in Sources */,
 				BBB5105C2AF843A100E48F61 /* CustomNavigationController.swift in Sources */,
 				BB1E32DC2AF58B79004C8ABF /* DigimonCollectionViewController.swift in Sources */,
@@ -396,6 +411,7 @@
 				BB3703BC2AF4329400CF4639 /* UIImage.swift in Sources */,
 				BB1E32E22AF5D9FC004C8ABF /* DigimonCollectionHeaderView.swift in Sources */,
 				BB3703C22AF43CD300CF4639 /* SignInViewController.swift in Sources */,
+				BB8F2F4F2AFADF3B00C98914 /* SwiftUIView.swift in Sources */,
 				BB3703C02AF4398B00CF4639 /* DigimonDetailsViewController.swift in Sources */,
 				BB3703BE2AF4347B00CF4639 /* DigimonLevel.swift in Sources */,
 				BB1E32DE2AF59278004C8ABF /* DigimonCollectionViewCell.swift in Sources */,

@@ -12,16 +12,19 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         let vc1 = DigimonTableViewController()
         let vc2 = DigimonCollectionViewController()
+        let vc3 = UIKitToSwiftUIViewController()
         
         vc1.tabBarItem.image = UIImage(systemName: "list.bullet.rectangle.portrait.fill")
         vc2.tabBarItem.image = UIImage(systemName: "square.grid.3x3")
+        vc3.tabBarItem.image = UIImage(systemName: "swift")
         
         vc1.tabBarItem.title = "List"
         vc2.tabBarItem.title = "Grid"
+        vc3.tabBarItem.title = "SwiftUI"
         
         tabBar.tintColor = UIColor.theme.labelColor
         
-        setViewControllers([vc1, vc2], animated: true)
+        setViewControllers([vc1, vc2, vc3], animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

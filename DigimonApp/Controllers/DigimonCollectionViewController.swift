@@ -40,7 +40,7 @@ class DigimonCollectionViewController: CustomNavigationController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        collectionView.frame = contentView.bounds        
+        collectionView.frame = contentView.bounds
     }
 }
 
@@ -140,6 +140,7 @@ extension DigimonCollectionViewController : UICollectionViewDataSource {
 
 extension DigimonCollectionViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         if let digimons = digimonDict[self.levels[indexPath.section]],
            digimons.count > indexPath.row {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {

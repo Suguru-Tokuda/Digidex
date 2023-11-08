@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol DigimonsResponseProtocol {
+protocol DigimonsResponseProtocol : AnyObject {
     func didFinishWithResponse(digimons: [Digimon])
     func didFishWithError(error: Error)
 }
 
 class DigimonService {
     static let shared = DigimonService()
-    var delegate: DigimonsResponseProtocol?
+    weak var delegate: DigimonsResponseProtocol?
     
     init() {}
     

@@ -73,9 +73,11 @@ extension DigimonDetailsViewController {
         digimonNameLabel.text = digimon.name
         digimonLavelLabel.text = digimon.level
         
-        if let url = URL(string: digimon.img) {
-            let width = view.bounds.width * 0.8
-            self.mainImage.load(url: url, size: CGSize(width: width, height: width))
+        DispatchQueue.main.async {
+            if let url = URL(string: digimon.img) {
+                let width = self.view.bounds.width * 0.8
+                self.mainImage.load(url: url, size: CGSize(width: width, height: width))
+            }
         }
     }
 }

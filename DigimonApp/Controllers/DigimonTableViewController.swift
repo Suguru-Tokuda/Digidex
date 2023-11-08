@@ -10,9 +10,10 @@ import UIKit
 class DigimonTableViewController: CustomNavigationController {
     var levels: [DigimonLevel] = []
     var digimonDict: [DigimonLevel : [Digimon]] = [:]
-    
+        
     private var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(DigimonTableViewCell.self, forCellReuseIdentifier: DigimonTableViewCell.identifier)
         return tableView
     }()
@@ -112,8 +113,10 @@ extension DigimonTableViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if let digimons = digimonDict[self.levels[indexPath.section]],
            digimons.count > indexPath.row {
+            
             DispatchQueue.main.async {
                 let digimon = digimons[indexPath.row]
                 let vc = DigimonDetailsViewController()
