@@ -8,6 +8,8 @@
 import UIKit
 
 class SignInViewController: UIViewController {
+    private var vm: SignInViewModel = SignInViewModel()
+    
     var mainLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "Digidex"
@@ -64,25 +66,6 @@ extension SignInViewController {
         
         applyConstraints()
     }
-    
-    /**
-     Validate email and password
-     */
-    private func isValidCredentials(email: String?, password: String?) -> Bool {
-        var isValid = false
-        
-        guard let email = email else { return isValid }
-        guard let password = password else { return isValid }
-        
-        let isValidPassword = password.count >= 6
-        let emailRegex = "[A-Za-z0-9.%+-]+@[A-Za-z0-9.]+\\.[A-Za-z]{2,64}"
-        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
-        let isEmailValid = emailPredicate.evaluate(with: email)
-        
-        isValid = isValidPassword && isEmailValid
-        
-        return isValid
-    }
 }
 
 extension SignInViewController {
@@ -124,7 +107,7 @@ extension SignInViewController {
 
 extension SignInViewController {
     @objc func signInBtnTap() {
-        if isValidCredentials(email: self.emailTextField.text, password: self.passwordTextField.text) {
+        if vm.isValidCredentials(email: self.emailTextField.text, password: self.passwordTextField.text) {
             let vc = MainTabBarController()
             self.navigationController?.pushViewController(vc, animated: true)
         } else {

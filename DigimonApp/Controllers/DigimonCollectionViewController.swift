@@ -8,9 +8,8 @@
 import UIKit
 
 class DigimonCollectionViewController: CustomNavigationController {
-    var levels: [DigimonLevel] = []
-    var digimonDict: [DigimonLevel : [Digimon]] = [:]
-    
+    var vm: DigimonsViewModel = DigimonsViewModel()
+
     private var contentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +34,7 @@ class DigimonCollectionViewController: CustomNavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        getDigimonsWithDelegate()
+        vm.getDigimonsWithDelegate()
     }
     
     override func viewDidLayoutSubviews() {
@@ -55,6 +54,26 @@ extension DigimonCollectionViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        vm.dataFetchCompletionHandler = {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+                if self.refreshControl.isRefreshing {
+                    self.refreshControl.endRefreshing()
+                }
+            }
+        }
+        
+        vm.dataFetchFailureHandler = { error in
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Error fetching digimon data.", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                self.present(alert, animated: true)
+                if self.refreshControl.isRefreshing {
+                    self.refreshControl.endRefreshing()
+                }
+            }
+        }
+        
         applyConstraints()
     }
 }
@@ -72,33 +91,12 @@ extension DigimonCollectionViewController {
     }
 }
 
-extension DigimonCollectionViewController {
-    private func getDigimonsWithDelegate() {
-        DispatchQueue.main.async {
-            self.digimonDict = [:]
-            self.levels = []
-        }
-        var digimonService: DigimonService? = DigimonService()
-        digimonService?.delegate = self
-        
-        digimonService?.getDigimonsWithDelegate()
-        digimonService = nil
-    }
-    
-    private func processDigimons(digimons: [Digimon]) {
-        let (digimonDict, levels) = DigimonService.shared.processDigimons(digimons: digimons)
-
-        self.digimonDict = digimonDict
-        self.levels = levels
-    }
-}
-
 extension DigimonCollectionViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DigimonCollectionViewCell.identifier, for: indexPath) as? DigimonCollectionViewCell {
-            if !levels.isEmpty {
-                let level = levels[indexPath.section]
-                if let digimons = digimonDict[level] {
+            if !vm.levels.isEmpty {
+                let level = vm.levels[indexPath.section]
+                if let digimons = vm.digimonDict[level] {
                     let digimon = digimons[indexPath.item]
                     cell.setDigimon(digimon: digimon)
                 }
@@ -111,8 +109,8 @@ extension DigimonCollectionViewController : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if levels.count > section {
-            if let digimons = digimonDict[self.levels[section]] {
+        if vm.levels.count > section {
+            if let digimons = vm.digimonDict[vm.levels[section]] {
                 return digimons.count
             }
         }
@@ -121,13 +119,13 @@ extension DigimonCollectionViewController : UICollectionViewDataSource {
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return self.levels.count
+        return vm.levels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DigimonCollectionHeaderView.identifier, for: indexPath) as! DigimonCollectionHeaderView
         
-        let level = levels[indexPath.section]
+        let level = vm.levels[indexPath.section]
         header.setValue(level: level.rawValue)
         
         return header
@@ -138,10 +136,10 @@ extension DigimonCollectionViewController : UICollectionViewDataSource {
     }
 }
 
-extension DigimonCollectionViewController : UICollectionViewDelegate {
+extension DigimonCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        if let digimons = digimonDict[self.levels[indexPath.section]],
+        if let digimons = vm.digimonDict[vm.levels[indexPath.section]],
            digimons.count > indexPath.row {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 let digimon = digimons[indexPath.row]
@@ -154,29 +152,7 @@ extension DigimonCollectionViewController : UICollectionViewDelegate {
     }
 }
 
-extension DigimonCollectionViewController : DigimonsResponseProtocol {
-    func didFinishWithResponse(digimons: [Digimon]) {
-        DispatchQueue.main.async {
-            self.processDigimons(digimons: digimons)
-            self.collectionView.reloadData()
-
-            if self.refreshControl.isRefreshing {
-                self.refreshControl.endRefreshing()
-            }
-        }
-    }
-    
-    func didFishWithError(error: Error) {
-        let alert = UIAlertController(title: "Error fetching digimon data.", message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-        self.present(alert, animated: true)
-        if self.refreshControl.isRefreshing {
-            self.refreshControl.endRefreshing()
-        }
-    }
-}
-
-extension DigimonCollectionViewController : UICollectionViewDelegateFlowLayout {
+extension DigimonCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let columns = 3
         let width = (Int(collectionView.bounds.width) - 40) / columns
@@ -188,6 +164,7 @@ extension DigimonCollectionViewController : UICollectionViewDelegateFlowLayout {
 // MARK: event handlers
 extension DigimonCollectionViewController {
     @objc private func refreshDigimonCollection() {
-        self.getDigimonsWithDelegate()
+        refreshControl.beginRefreshing()
+        vm.getDigimonsWithDelegate()
     }
 }
