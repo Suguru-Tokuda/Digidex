@@ -16,7 +16,7 @@ class DigimonService {
     static let shared = DigimonService()
     weak var delegate: DigimonsResponseProtocol?
     
-    init() {}
+    private init() {}
     
     func getDigimons(_ completionHandler: @escaping (Result<[Digimon], Error>) -> Void) {
         let urlStr = "\(Constants.apiBaseUrl)digimon"

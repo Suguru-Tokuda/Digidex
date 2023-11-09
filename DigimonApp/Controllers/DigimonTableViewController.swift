@@ -8,9 +8,8 @@
 import UIKit
 
 class DigimonTableViewController: CustomNavigationController {
-    var levels: [DigimonLevel] = []
-    var digimonDict: [DigimonLevel : [Digimon]] = [:]
-        
+    var vm: DigimonsViewModel = DigimonsViewModel()
+
     private var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,30 +40,9 @@ extension DigimonTableViewController {
             self.refreshControl.beginRefreshing()
         }
         
-        DispatchQueue.global(qos: .utility).async {
-            DigimonService.shared.getDigimons { [weak self] res in
-                DispatchQueue.main.async {
-                    switch res {
-                    case .success(let digimons):
-                        self?.processDigimons(digimons: digimons)
-                        self?.tableView.reloadData()
-                        self?.refreshControl.endRefreshing()
-                    case .failure(let error):
-                        let alert = UIAlertController(title: "Error fetching digimon data.", message: error.localizedDescription, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-                        self?.present(alert, animated: true)
-                        self?.refreshControl.endRefreshing()
-                    }
-                }
-            }
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            self?.vm.getDigimons()
         }
-    }
-
-    private func processDigimons(digimons: [Digimon]) {
-        let (digimonDict, levels) = DigimonService.shared.processDigimons(digimons: digimons)
-
-        self.digimonDict = digimonDict
-        self.levels = levels
     }
 }
 
@@ -77,12 +55,26 @@ extension DigimonTableViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        vm.dataFetchCompletionHandler = {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        }
+        
+        vm.dataFetchFailureHandler = {error in
+            let alert = UIAlertController(title: "Error fetching digimon data.", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            self.present(alert, animated: true)
+            self.refreshControl.endRefreshing()
+        }
     }
 }
 
 extension DigimonTableViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let digimons = digimonDict[self.levels[section]] {
+        if let digimons = vm.digimonDict[vm.levels[section]] {
             return digimons.count
         }
         
@@ -91,7 +83,7 @@ extension DigimonTableViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DigimonTableViewCell.identifier, for: indexPath) as? DigimonTableViewCell else { return UITableViewCell() }
-        if let digimons = digimonDict[self.levels[indexPath.section]] {
+        if let digimons = vm.digimonDict[vm.levels[indexPath.section]] {
             cell.setDigimon(digimon: digimons[indexPath.row])
         }
         
@@ -99,11 +91,11 @@ extension DigimonTableViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return levels[section].rawValue
+        return vm.levels[section].rawValue
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return levels.count
+        return vm.levels.count
     }
 }
 
@@ -114,7 +106,7 @@ extension DigimonTableViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let digimons = digimonDict[self.levels[indexPath.section]],
+        if let digimons = vm.digimonDict[vm.levels[indexPath.section]],
            digimons.count > indexPath.row {
             
             DispatchQueue.main.async {
