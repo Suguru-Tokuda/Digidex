@@ -12,7 +12,7 @@ protocol DigimonsResponseProtocol : AnyObject {
     func didFishWithError(error: Error)
 }
 
-class DigimonService {
+final class DigimonService {
     static let shared = DigimonService()
     weak var delegate: DigimonsResponseProtocol?
     
